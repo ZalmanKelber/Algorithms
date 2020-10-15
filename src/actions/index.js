@@ -8,8 +8,9 @@ import {
     UPDATE_ALGORITHM_PROGRESS,
     RESET
 } from "./types";
+import { initialState } from "../reducers/initialState";
 
-//note that the logic of updating state is not written in either the action creator or reducer 
+//note that the logic of updating state is not written in either the action creator or reducer
 //functions but rather separate functions that can be exported and called without having to access
 //the redux score or connect component directly
 
@@ -64,6 +65,7 @@ export const updateAlgorithmProgress = payload => {
 
 export const reset = () => {
     return {
-        type: RESET
+        type: RESET,
+        payload: initialState
     }
 }

@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screen Grab of Kruskal Visualization during sorting phase](KruskalScreenGrab1.png)
+![Screen Grab of Kruskal Visualization during algorithm phrase](KruskalScreenGrab2.png)
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+View the project on **heroku** [here](https://floating-plains-07920.herokuapp.com/) (initial load my take a minute)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This frontend **React** application shows detailed visualzations of two graph algorithms: [**Kruskal**](https://en.wikipedia.org/wiki/Kruskal's_algorithm) and [**Kosaraju-Shahrir**](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm) as well as [**Huffman's encoding algorithm**](https://en.wikipedia.org/wiki/Huffman_coding#Compression).  The visualizations all take input data that is either entered by users or else is editable by users.  Users can also select various options for the algorithms (such as sort methods) that affect the run time.  The visualizations are a powerful tool for understanding the way these algorithms all use specific data structures to optimize run times for certain kinds of problems.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The visualization displays are rendered without the help of any data-visualization library like D3 JS but rather simply rely on the **P5 JS** library in conjunction with the **React P5 Wrapper.**  The input data as well as the precise values of the data structures during the course of each algorithm are stored using **Redux.**  The buttons and forms are rendered with the **Semantic UI** library while the simple animation on the home page was created using plain CSS and javaScript.
 
-### `npm test`
+## Instructions
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app works on mobile but is best viewed on a desktop since the ability to edit the input graphs in the Kosaraku and Kruskal algorithm relies on mouse inputs for dragging, &c.  For the Kruskal and Kosaraju algorithms, the default input is a small graph, but the algorithms are best viewed with the large inputs.  In both of them, the graph can be edited by moving the nodes as well as adding and deleting nodes and edges.  At each step of the algorithm, users can choose between running one step at a time (in which case the smaller input data is recommended) or running the entire phase at once.
 
-### `npm run build`
+## Constraints
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. The Huffman algorithm is case-insensitive and only allows for letters and the space.  Limiting the number of characters to 27 keeps the tree size manageable for the purpose of the visualization.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+2. The program must actually run and solve the Kosaraju algorithm before the final stage of the visualization can begin.  This is so the number of Strongly Connected Components can be known ahead of time so that individual Strongly Connected Components can be colored as the algorithm unfolds such that the colors are evenly distributed across the rgb cube.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Huffman algorithm input](HuffmanScreenGrab1.png)
+![Huffman algorithm after completion](HuffmanScreenGrab2.png)
 
-### `npm run eject`
+## Where to find the most interesting code in this repository
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* To see how the trees in the Huffman algorithm are rendered at any given stage, see [this code](https://github.com/ZalmanKelber/Algorithms/blob/master/src/utils/sketchFunctions/drawTree.js) and [this code](https://github.com/ZalmanKelber/Algorithms/blob/master/src/utils/sketchFunctions/drawCirclesHuffman.js)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* To see how the next step of the Kosaraju algorithm and sent to the Redux store, see [this code](https://github.com/ZalmanKelber/Algorithms/blob/master/src/utils/changeStore/nextKosarajuStep.js)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* To see how a given number of colors are found such that they are evenly distributed across the rgb cube, see [this code](https://github.com/ZalmanKelber/Algorithms/blob/master/src/utils/miscellaneous/generateColors.js)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Issues and Bugs
 
-## Learn More
+* The individual algorithms can't be reset to their starting positions after being completed without refreshing the page.  This seems to be because of improper updating of the Redux Store at various stages of the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Future steps
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Consider turning the generateColors function into its own repository available for download and instillation using npm for reuse in different projects.

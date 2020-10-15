@@ -11,7 +11,7 @@ import {
     RESET
 } from "../actions/types";
 
-//note that the logic of updating state is not written in either the action creator or reducer 
+//note that the logic of updating state is not written in either the action creator or reducer
 //functions but rather separate functions that can be exported and called without having to access
 //the redux score or connect component directly
 
@@ -20,7 +20,7 @@ const selectedAlgorithmReducer = (state={ ...initialState.selectedAlgorithm }, a
         return action.payload;
     }
     if (action.type === RESET) {
-        return initialState.selectedAlgorithm;
+        return action.payload.selectedAlgorithm;
     }
     return state;
 }
@@ -29,7 +29,7 @@ const phaseReducer = (state=initialState.phase, action) => {
         return action.payload;
     }
     if (action.type === RESET) {
-        return initialState.phase;
+        return action.payload.phase;
     }
     return state;
 }
@@ -38,7 +38,7 @@ const inputReducer = (state={ ...initialState.input}, action) => {
         return action.payload;
     }
     if (action.type === RESET) {
-        return initialState.input;
+        return action.payload.input;
     }
     return state;
 }
@@ -47,7 +47,7 @@ const editGraphReducer = (state={ ...initialState.editGraph}, action) => {
         return action.payload;
     }
     if (action.type === RESET) {
-        return initialState.editGraph;
+        return action.payload.editGraph;
     }
     return state;
 }
@@ -56,7 +56,7 @@ const formInputReducer = (state={ ...initialState.formInput}, action) => {
         return action.payload;
     }
     if (action.type === RESET) {
-        return initialState.formInput;
+        return action.payload.formInput;
     }
     return state;
 }
@@ -65,7 +65,7 @@ const dataReducer = (state={ ...initialState.data}, action) => {
         return action.payload;
     }
     if (action.type === RESET) {
-        return initialState.data;
+        return action.payload.data;
     }
     return state;
 }
@@ -74,7 +74,8 @@ const algorithmProgressReducer = (state={ ...initialState.algorithmProgress}, ac
         return action.payload;
     }
     if (action.type === RESET) {
-        return initialState.algorithmProgress;
+        console.log("returning kruskal algorithm progress:", initialState.algorithmProgress.kruskal);
+        return action.payload.algorithmProgress;
     }
     return state;
 }

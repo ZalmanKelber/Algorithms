@@ -3,7 +3,7 @@
 
 ## Live Demo
 
-View the project on **heroku** [here](https://floating-plains-07920.herokuapp.com/) (initial load my take a minute)
+View the project on **GitHub Pages** [here](https://zalmankelber.github.io/Algorithms) 
 
 ## Overview
 

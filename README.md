@@ -1,5 +1,5 @@
-![Screen Grab of Kruskal Visualization during sorting phase](KruskalScreenGrab1.png)
-![Screen Grab of Kruskal Visualization during algorithm phrase](KruskalScreenGrab2.png)
+![Screen Grab of Kruskal Visualization during sorting phase](readmeImages/KruskalScreenGrab1.png)
+![Screen Grab of Kruskal Visualization during algorithm phrase](readmeImages/KruskalScreenGrab2.png)
 
 ## Live Demo
 
@@ -21,8 +21,8 @@ The app works on mobile but is best viewed on a desktop since the ability to edi
 
 2. The program must actually run and solve the Kosaraju algorithm before the final stage of the visualization can begin.  This is so the number of Strongly Connected Components can be known ahead of time so that individual Strongly Connected Components can be colored as the algorithm unfolds such that the colors are evenly distributed across the rgb cube.
 
-![Huffman algorithm input](HuffmanScreenGrab1.png)
-![Huffman algorithm after completion](HuffmanScreenGrab2.png)
+![Huffman algorithm input](readmeImages/HuffmanScreenGrab1.png)
+![Huffman algorithm after completion](readmeImages/HuffmanScreenGrab2.png)
 
 ## Where to find the most interesting code in this repository
 

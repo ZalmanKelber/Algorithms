@@ -8,6 +8,7 @@ import Huffman from "./Huffman";
 import About from "./About";
 
 const App = () => {
+
     return (
         <BrowserRouter>
             <Route path="/" exact component={Home} />

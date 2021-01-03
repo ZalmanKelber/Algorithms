@@ -24,6 +24,7 @@ import ButtonsCompleted from "./ButtonsCompleted";
 const UserInput = props => {
 
     const resetPage = () => {
+        window.location.reload()
         const { type } = props;
         callReset();
         changeSelectedAlgorithmType(type);

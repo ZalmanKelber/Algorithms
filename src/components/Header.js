@@ -9,16 +9,16 @@ const Header = () => {
                 Algorithm Visualizer
             </div>
             <div className="menu-items">
-                <div className="menu-link">
+                <div className="menu-link" onClick={() => window.location.reload()}>
                     <Link to="/">Home</Link>
                 </div>
-                <div className="menu-link">
+                <div className="menu-link" onClick={() => window.location.reload()}>
                     <Link to="/kruskal">Kruskal</Link>
                 </div>
-                <div className="menu-link">
+                <div className="menu-link" onClick={() => window.location.reload()}>
                     <Link to="/kosaraju">Kosaraju</Link>
                 </div>
-                <div className="menu-link">
+                <div className="menu-link" onClick={() => window.location.reload()}>
                     <Link to="/huffman">Huffman</Link>
                 </div>
             </div>
